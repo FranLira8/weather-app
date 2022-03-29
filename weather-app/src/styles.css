@@ -1,0 +1,33 @@
+.search-bar {
+  margin-bottom: 60px;
+}
+
+.container {
+  color: #272343;
+  background-color: #e3f6f5;
+}
+
+.box {
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  border-radius: 0.25rem;
+  width: 550px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 30px;
+  display: block;
+}
+
+#celsius {
+  font-size: x-large;
+}
+
+#fahrenheit {
+  font-size: x-large;
+}
+
+#current {
+}
+
+header {
+  margin-top: -45px;
+}
