@@ -17,16 +17,16 @@
   display: block;
 }
 
+.gitHubLink {
+  display: block;
+}
+
 #celsius {
   font-size: x-large;
 }
 
 #fahrenheit {
   font-size: x-large;
-}
-
-#openSourceLink {
-  display: block;
 }
 
 header {
