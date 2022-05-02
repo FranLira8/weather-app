@@ -25,7 +25,8 @@
   font-size: x-large;
 }
 
-#current {
+#openSourceLink {
+  display: block;
 }
 
 header {
