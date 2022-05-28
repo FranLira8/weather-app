@@ -41,13 +41,18 @@ h6.innerHTML = `${day} ${month} ${date} ${year}, ${hour}:${minutes}`;
 
 //challenge 3:
 function changeToCelsius() {
-  let temp = document.querySelector("#currentTemp");
-  temp.innerHTML = "☀️ 18";
+  let apiKey = "047a16ee4ff9c5f736393bccc1c2faad";
+  let city = document.querySelector("#city").textContent;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
 
 function changeToFahrenheit() {
-  let temp = document.querySelector("#currentTemp");
-  temp.innerHTML = "☀️ 64";
+  // let temp = document.querySelector("#currentTemp");
+  let apiKey = "047a16ee4ff9c5f736393bccc1c2faad";
+  let city = document.querySelector("#city").textContent;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
 
 let celsius = document.querySelector("#celsius");
@@ -57,15 +62,22 @@ celsius.addEventListener("click", changeToCelsius);
 fahrenheit.addEventListener("click", changeToFahrenheit);
 
 //homework week 5
+
 let currentCity = document.querySelector("#city");
 
 function showTemperature(response) {
+  console.log(response);
+  let icon = document.getElementById("icon");
+
+  let iconId = response.data.weather[0].icon;
+  let iconUrl = `http://openweathermap.org/img/wn/${iconId}@2x.png`;
+  console.log(iconId);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#currentTemp");
-  temperatureElement.innerHTML = `${temperature}°C🌦️`;
-  console.log(response);
+  temperatureElement.textContent = `${temperature}°C`;
   let minTemp = Math.round(response.data.main.temp_min);
   let minTempEl = document.querySelector("#minTemp");
+  icon.setAttribute("src", iconUrl);
 
   minTempEl.innerHTML = `Min ${minTemp}°C`;
 
